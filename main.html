@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+	<style>
+	* {
+		text-align: center;
+	}
+	body {
+		background-image: url("Media/Backgrounds/Space_BG.jpg");
+		background-repeat: no-repeat;
+  		background-attachment: fixed;
+  		background-size: 100% 100%;	
+	}
+	img {
+		width: 40em;
+		height: auto;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
+	img:hover {
+		animation-name: pulse;
+  		animation-duration: 1s;
+		animation-delay: 0.1s;
+		animation-iteration-count: infinite;
+	}
+
+
+	@keyframes pulse {
+		0%   {width: 40em}
+		50%  {width: 55em;}
+		100% {width: 40em;}
+	}
+	
+
+	
+	</style>
+	<head>
+		<link rel="stylesheet" href="style.css">
+		<meta charset="utf-8">
+		<title>Welcome</title>
+	</head>
+
+	<body>
+		<h1 style="color: rgb(255, 255, 0)">Welcome to the Website</h1>
+		<p style="color: white">Click buttons once to play tracks, click twice to open links</p>
+		<br>
+		<img id="games" src='Media/Buttons/GamesButton.png' alt="Games" title="Games">
+		<br>
+		<img id="notes" src='Media/Buttons/NotesButton.png' alt="Notes" title="Notes">
+		<br>
+		<img id="doodads" src='Media/Buttons/DoodadsButton.png' alt="Doodads and Whatsits" title="Doodads and Whatsits">
+		<br>
+		<img id="attributions" src='Media/Buttons/AttriButton.png' alt="Attributions" title="Attributions">
+		<br>
+		<br>
+		<br>
+		<br>
+
+		<audio id="audio1" src="temp.mp3"></audio>
+		<audio id="audio2" src="temp2.mp3"></audio>
+		<audio id="audio3" src="temp3.mp3"></audio>
+		<audio id="audio4" src="temp4.mp3"></audio>
+		<audio id="audio5" src="temp5.mp3"></audio>
+
+		<script>
+			//var audio = document.getElementById("audio1");
+			//var img = document.getElementById("games");
+			var playing = false;
+			
+			const fileDict = {
+				games: {
+					audio: document.getElementById("audio1"),
+					img: document.getElementById("games"),
+					target: "games.html",
+				},
+				notes: {
+					audio: document.getElementById("audio2"),
+					img: document.getElementById("notes"),
+					target: "notes.html",
+				},
+				doodads: {
+					audio: document.getElementById("audio3"),
+					img: document.getElementById("doodads"),
+					target: "doodads.html",
+				},
+				attributions: {
+					audio: document.getElementById("audio5"),
+					img: document.getElementById("attributions"),
+					target: "works_cited.html",
+				},
+			};
+
+
+			function play(audio) {
+				return function executeOnEvent (event) {
+					audio.loop = true;
+					audio.play();
+				}
+			}
+			
+			function playAndOpen(audio, target) {
+				return function executeOnEvent (event) {
+					audio.loop = true;
+					audio.play();
+					if(playing) {
+						window.open(target, "_self");
+					}
+					playing = true;
+				}
+			}
+
+
+			function stop(audio) {
+				return function executeOnEvent (event) {
+					audio.pause();
+					playing = false;
+				}
+			}
+
+			
+			//Condense this into own function later
+			fileDict["games"]["img"].addEventListener('mouseover', play(fileDict["games"]["audio"]));
+			fileDict["games"]["img"].addEventListener('click', playAndOpen(fileDict["games"]["audio"], fileDict["games"]["target"]));
+			fileDict["games"]["img"].addEventListener('mouseout', stop(fileDict["games"]["audio"]));
+
+			fileDict["notes"]["img"].addEventListener('mouseover', play(fileDict["notes"]["audio"]));
+			fileDict["notes"]["img"].addEventListener('click', playAndOpen(fileDict["notes"]["audio"], fileDict["notes"]["target"]));
+			fileDict["notes"]["img"].addEventListener('mouseout', stop(fileDict["notes"]["audio"]));
+
+			fileDict["doodads"]["img"].addEventListener('mouseover', play(fileDict["doodads"]["audio"]));
+			fileDict["doodads"]["img"].addEventListener('click', playAndOpen(fileDict["doodads"]["audio"], fileDict["doodads"]["target"]));
+			fileDict["doodads"]["img"].addEventListener('mouseout', stop(fileDict["doodads"]["audio"]));
+
+			fileDict["attributions"]["img"].addEventListener('mouseover', play(fileDict["attributions"]["audio"]));
+			fileDict["attributions"]["img"].addEventListener('click', playAndOpen(fileDict["attributions"]["audio"], fileDict["attributions"]["target"]));
+			fileDict["attributions"]["img"].addEventListener('mouseout', stop(fileDict["attributions"]["audio"]));
+		</script>
+	</body>
+
+	<div>
+	</div>
+
+</html>

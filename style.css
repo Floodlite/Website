@@ -1,0 +1,39 @@
+* {
+	box-sizing: border-box;
+}
+
+@font-face {
+   	font-family: greenBrooks;
+   	src: url('GreenBrooksRegular.otf');
+}
+
+h1 {
+	text-align: center;
+	font-family: greenBrooks;
+    font-size: 3rem;
+}
+
+h2 {
+	border-width: 2px;
+	border-style: dotted;
+	border-color: yellow;
+	color: rgb(255, 180, 180);
+	font-family: Futura, "Trebuchet MS"
+}
+
+h3 {
+	color: blue;
+	font-size: 1.5rem;
+	font-family: Futura, "Trebuchet MS"
+}
+
+h4 {
+	font-weight: 125;
+	font-style: italic;
+	color: white;
+	font-family: Futura, "Trebuchet MS";
+	font-size: 1.2rem;
+}
+
+p { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 1.15rem; font-style: normal; font-variant: normal; font-weight: 400; line-height: 1rem; } blockquote { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 1rem; font-style: normal; font-variant: normal; font-weight: 400; line-height: 1rem; } pre { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 1rem; }
+
