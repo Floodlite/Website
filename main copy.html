@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -24,8 +24,8 @@ body {
   padding: 10px;
   font-size: 12px;
   text-align: center;
-  <!--background: rgb(255, 0, 139);-->
-  <!--background-image: url("Media/Backgrounds/Galaxy.jpg");-->
+  background: rgb(255, 0, 139);
+  background-image: url("Media/Backgrounds/Galaxy.jpg");
 		background-repeat: no-repeat;
   		background-attachment: unfixed;
   		background-size: 100% 200%;
@@ -47,9 +47,10 @@ body {
 }
 
 /* Fake image */
-.fakeimg {
+.img {
   background-color: #aaa;
   width: 100%;
+  height: auto;
   padding: 20px;
 }
 
@@ -87,11 +88,7 @@ p {
 	margin-top: 20px;
 }
 
-h5 {
-	background: #9eeaffdd;
-	padding: 20px;
-	margin-top: 20px;
-}
+
 
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
@@ -113,43 +110,50 @@ h5 {
 </div>
 
 <div class="row">
+
+
+
   <div class="leftcolumn">
     <div class="card">
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Dec 7, 2017</h5>
-      <div class="fakeimg" style="height:200px;">Image</div>
+      <h2>04/07/2026: An Initial Commit</h2>
+      <h5>And who knows what it can portend?!</h5>
+      <div class="img" style="height:200px;">Image</div>
       <p>Some text..</p>
       <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
     </div>
-    <div class="card">
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Sep 2, 2017</h5>
-      <div class="fakeimg" style="height:200px;">Image</div>
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-    </div>
+
+
   </div>
+
   <div class="rightcolumn">
     <div class="card">
       <h2>About Me</h2>
-      <div class="fakeimg" style="height:100px;">Image</div>
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+      <img src="Media\Blogosphere\Icons\Wasteland.jpg" alt="Image of me" width="70%" height="70%">
+      <p>H.B.G.</p>
+      <p>An intriguing man who has been trapped inside this website for who knows how long</p>
     </div>
+
+
+
     <div class="card">
       <h3>Popular Post</h3>
-      <div class="fakeimg">Image</div><br>
-      <div class="fakeimg">Image</div><br>
-      <div class="fakeimg">Image</div>
+      <div class="img">Image</div><br>
+      <div class="img">Image</div><br>
+      <div class="img">Image</div>
     </div>
+
+
+
+
     <div class="card">
-      <h3>Follow Me</h3>
-      <p>Some text..</p>
+      <h3>Where to Find Me</h3>
+      <a href="https://github.com/Floodlite">GitHub</a> <br> 
+      <a href="https://www.linkedin.com/in/henry-bg-910a9b313/">Linkedin</a> <br> 
+      <a href="https://supercriticality.itch.io/">Itch.io</a> <br> 
+      <a href="https://lambda-cdm.bandcamp.com/">Bandcamp</a> <br> 
+      <iframe scrolling="no" style="border: 1; border-color:cyan; width: 100%;height: 50px;" color="cyan"; src="https://bandcamp.com/band_follow_button_deluxe/2814771398"></iframe>
     </div>
   </div>
-</div>
-
-<div class="footer">
-  <h2>Footer</h2>
 </div>
 
 </body>
