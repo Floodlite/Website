@@ -28,9 +28,9 @@ body {
   background-position: center;
   background-image: url("Media/Backgrounds/Galaxy.jpg");
 		background-repeat: no-repeat;
-  		background-attachment: unfixed;
-  		background-size: 100% 200%;
-      border-radius: 90%;
+    background-attachment: unfixed;
+    background-size: 100% 200%;
+    border-radius: 90%;
 }
 
 /* Create two unequal columns that floats next to each other */
@@ -47,12 +47,26 @@ body {
   padding-left: 20px;
 }
 
-/* Fake image */
 .img {
   background-color: #aaa;
   width: 100%;
   height: auto;
   padding: 20px;
+}
+
+.img-nav {
+  background-color: #ffdcdc70;
+  width: 20%;
+  height: auto;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 3px;
+  padding-right: 3px;
+  background-repeat: no-repeat;
+    background-attachment: unfixed;
+    background-size: 100% 100%;
+    border-radius: 90%;
+  margin: auto;
 }
 
 /* Add a card effect for articles */
@@ -110,6 +124,14 @@ p {
 	<h1 style="color: rgb(255, 255, 0)">Welcome to the Website</h1>
 </div>
 
+<div class="nav">
+  <img id="games" src='Media/Buttons/GamesButton.png' alt="Games" title="Games" class="img-nav">
+	<img id="notes" src='Media/Buttons/NotesButton.png' alt="Notes" title="Notes" class="img-nav">
+	<img id="doodads" src='Media/Buttons/DoodadsButton.png' alt="Doodads and Whatsits" title="Doodads and Whatsits" class="img-nav">
+	<img id="attributions" src='Media/Buttons/AttriButton.png' alt="Attributions" title="Attributions" class="img-nav">
+</div>
+
+
 <div class="row">
 
 
@@ -117,7 +139,7 @@ p {
   <div class="leftcolumn">
     <div class="card">
       <h2>04/07/2026: An Initial Commit</h2>
-      <h5>And who knows what it can portend?!</h5>
+      <h5><u>Boilerplate</u>: And who knows what it can portend?!</h5>
       <div class="img" style="height:200px;">Image</div>
       <p>Some text..</p>
       <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
