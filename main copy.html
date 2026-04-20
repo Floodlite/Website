@@ -155,6 +155,22 @@ p {
       <iframe scrolling="no" style="border: 1; border-color:cyan; width: 100%;height: 50px;" color="cyan"; src="https://bandcamp.com/band_follow_button_deluxe/2814771398"></iframe>
     </div>
   </div>
+
+
+
+
+  <script>
+    function ChangeDecade(inputYear, targetDecade) {
+      //ChangeDecade(2026, 2010) --> 2016
+      //ChangeDecade(2026, 2000) --> 2006
+      var firstThreeDigits = String(Math.floor(targetDecade / 10)); 
+      var targetYearsDigit = String(inputYear % 10);
+      return firstThreeDigits + targetYearsDigit;
+    }
+
+
+    
+  </script>
 </div>
 
 </body>
