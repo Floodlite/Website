@@ -14,6 +14,7 @@ h1 {
 }
 
 h2 {
+	font-size: 2.5rem;
 	border-width: 2px;
 	border-style: dotted;
 	border-color: yellow;
@@ -24,7 +25,8 @@ h2 {
 h3 {
 	color: blue;
 	font-size: 1.5rem;
-	font-family: Futura, "Trebuchet MS"
+	font-family: Futura, "Trebuchet MS";
+	background: #cdfdff;
 }
 
 h4 {
@@ -33,6 +35,20 @@ h4 {
 	color: white;
 	font-family: Futura, "Trebuchet MS";
 	font-size: 1.2rem;
+}
+
+h5 {
+	background: #9eeaffdd;
+	padding: 20px;
+	margin-top: 20px;
+	font-size: 1.0rem;
+}
+
+a {
+    color: rgb(0, 255, 255);
+    background-color: rgb(0, 0, 255);
+    font-weight: bold;
+	font-size: 1.15rem;
 }
 
 p { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 1.15rem; font-style: normal; font-variant: normal; font-weight: 400; line-height: 1rem; } blockquote { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 1rem; font-style: normal; font-variant: normal; font-weight: 400; line-height: 1rem; } pre { font-family: Futura, "Trebuchet MS", Arial, sans-serif; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 1rem; }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -21,15 +21,29 @@ body {
 
 /* Header/Blog Title */
 .header {
-  padding: 10px;
-  font-size: 12px;
+  padding: 20px;
+  font-size: 12rem;
   text-align: center;
-  <!--background: rgb(255, 0, 139);-->
-  <!--background-image: url("Media/Backgrounds/Galaxy.jpg");-->
+  background-color: rgba(212, 111, 255, 0.457);
+  background-position: center;
+  background-image: url("Media/Backgrounds/Galaxy.jpg");
 		background-repeat: no-repeat;
-  		background-attachment: unfixed;
-  		background-size: 100% 200%;
-		background-position: center;
+    background-attachment: unfixed;
+    background-size: 100% 200%;
+    border-radius: 90%;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  background-color: rgba(212, 111, 255, 0.174); /*corner-shape: round round square square;*/
+  /*position: sticky;*/
+  top: 0;
+  z-index: 1;
 }
 
 /* Create two unequal columns that floats next to each other */
@@ -46,11 +60,39 @@ body {
   padding-left: 20px;
 }
 
-/* Fake image */
-.fakeimg {
+.img {
   background-color: #aaa;
   width: 100%;
+  height: auto;
   padding: 20px;
+}
+
+.img-nav {
+  background-color: #ffdcdc70;
+  width: 20%;
+  height: auto;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 3px;
+  padding-right: 3px;
+  background-repeat: no-repeat;
+    background-attachment: unfixed;
+    background-size: 100% 100%;
+    border-radius: 80%;
+  margin: auto;
+}
+
+.img-nav:hover {
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-delay: 0.1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  0%   {width: 20%; border-radius: 80%; background-color: #ff9d9da1;}
+  50%  {width: 30%; border-radius: 20%; background-color: #ff4444d6;;}
+  100% {width: 20%; border-radius: 80%; background-color: #ff9d9da1;}
 }
 
 /* Add a card effect for articles */
@@ -58,11 +100,13 @@ body {
    backdrop-filter: sepia(90%);  
    background-color: rgba(196, 248, 255, 0.9);
    background-image: url("Media/Backgrounds/Space_BG_Blue.jpg");
-		background-repeat: no-repeat;
+	 background-repeat: no-repeat;
   		background-attachment: fixed;
   		background-size: 100% 100%;	
-   padding: 20px;
-   margin-top: 20px;
+   padding-top: 0.1px;
+   padding-left: 20px;
+   padding-right: 20px;
+   padding-bottom: 20px;
    border-radius: 4px;
 }
 
@@ -87,11 +131,7 @@ p {
 	margin-top: 20px;
 }
 
-h5 {
-	background: #9eeaffdd;
-	padding: 20px;
-	margin-top: 20px;
-}
+
 
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
@@ -112,44 +152,155 @@ h5 {
 	<h1 style="color: rgb(255, 255, 0)">Welcome to the Website</h1>
 </div>
 
+<div class="nav">
+  <img id="games" src='Media/Buttons/GamesButton.png' alt="Go to Games" title="Go to Games" class="img-nav">
+	<img id="notes" src='Media/Buttons/NotesButton.png' alt="Go to Notes" title="Go to Notes" class="img-nav">
+	<img id="doodads" src='Media/Buttons/DoodadsButton.png' alt="Go to Doodads and Whatsits" title="Go to Doodads and Whatsits" class="img-nav">
+	<img id="attributions" src='Media/Buttons/AttriButton.png' alt="Go to Attributions" title="Go to Attributions" class="img-nav">
+
+  <audio id="audio1" src="temp.mp3"></audio>
+  <audio id="audio2" src="temp2.mp3"></audio>
+  <audio id="audio3" src="temp3.mp3"></audio>
+  <audio id="audio4" src="temp4.mp3"></audio>
+  <audio id="audio5" src="temp5.mp3"></audio>
+
+  <script>
+    var playing = false;
+    
+    const fileDict = {
+      games: {
+        audio: document.getElementById("audio1"),
+        img: document.getElementById("games"),
+        target: "games.html",
+      },
+      notes: {
+        audio: document.getElementById("audio2"),
+        img: document.getElementById("notes"),
+        target: "notes.html",
+      },
+      doodads: {
+        audio: document.getElementById("audio3"),
+        img: document.getElementById("doodads"),
+        target: "doodads.html",
+      },
+      attributions: {
+        audio: document.getElementById("audio5"),
+        img: document.getElementById("attributions"),
+        target: "works_cited.html",
+      },
+    };
+
+
+    function play(audio) {
+      return function executeOnEvent (event) {
+        audio.loop = true;
+        audio.play();
+      }
+    }
+    
+    function playAndOpen(audio, target) {
+      return function executeOnEvent (event) {
+        audio.loop = true;
+        audio.play();
+        if(playing) {
+          window.open(target, "_self");
+        }
+        playing = true;
+      }
+    }
+
+
+    function stop(audio) {
+      return function executeOnEvent (event) {
+        audio.pause();
+        playing = false;
+      }
+    }
+
+    
+    //Condense this into own function later
+    fileDict["games"]["img"].addEventListener('mouseover', play(fileDict["games"]["audio"]));
+    fileDict["games"]["img"].addEventListener('click', playAndOpen(fileDict["games"]["audio"], fileDict["games"]["target"]));
+    fileDict["games"]["img"].addEventListener('mouseout', stop(fileDict["games"]["audio"]));
+
+    fileDict["notes"]["img"].addEventListener('mouseover', play(fileDict["notes"]["audio"]));
+    fileDict["notes"]["img"].addEventListener('click', playAndOpen(fileDict["notes"]["audio"], fileDict["notes"]["target"]));
+    fileDict["notes"]["img"].addEventListener('mouseout', stop(fileDict["notes"]["audio"]));
+
+    fileDict["doodads"]["img"].addEventListener('mouseover', play(fileDict["doodads"]["audio"]));
+    fileDict["doodads"]["img"].addEventListener('click', playAndOpen(fileDict["doodads"]["audio"], fileDict["doodads"]["target"]));
+    fileDict["doodads"]["img"].addEventListener('mouseout', stop(fileDict["doodads"]["audio"]));
+
+    fileDict["attributions"]["img"].addEventListener('mouseover', play(fileDict["attributions"]["audio"]));
+    fileDict["attributions"]["img"].addEventListener('click', playAndOpen(fileDict["attributions"]["audio"], fileDict["attributions"]["target"]));
+    fileDict["attributions"]["img"].addEventListener('mouseout', stop(fileDict["attributions"]["audio"]));
+  </script>
+
+
+</div>
+
+
 <div class="row">
+  <br>
+
+
   <div class="leftcolumn">
     <div class="card">
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Dec 7, 2017</h5>
-      <div class="fakeimg" style="height:200px;">Image</div>
+      <h2>04/07/2026: An Initial Commit</h2>
+      <h5><u>Boilerplate</u>: And who knows what it can portend?!</h5>
+      <div class="img" style="height:200px;">Image</div>
       <p>Some text..</p>
       <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
     </div>
-    <div class="card">
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Sep 2, 2017</h5>
-      <div class="fakeimg" style="height:200px;">Image</div>
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-    </div>
+
+
   </div>
+
   <div class="rightcolumn">
     <div class="card">
       <h2>About Me</h2>
-      <div class="fakeimg" style="height:100px;">Image</div>
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+      <img src="Media\Blogosphere\Icons\Wasteland.jpg" alt="Who you looking at?!" titel="Very cool image of me" width="70%" height="70%">
+      <p>H.B.G.</p>
+      <p>An intriguing man who has been trapped inside this website for who knows how long</p>
     </div>
+
+
+
     <div class="card">
       <h3>Popular Post</h3>
-      <div class="fakeimg">Image</div><br>
-      <div class="fakeimg">Image</div><br>
-      <div class="fakeimg">Image</div>
+      <div class="img">Image</div><br>
+      <div class="img">Image</div><br>
+      <div class="img">Image</div>
     </div>
+
+
+
+
     <div class="card">
-      <h3>Follow Me</h3>
-      <p>Some text..</p>
+      <h3>Where to Find Me</h3>
+      <a href="https://github.com/Floodlite">GitHub</a> <br> 
+      <a href="https://www.linkedin.com/in/henry-bg-910a9b313/">Linkedin</a> <br> 
+      <a href="https://supercriticality.itch.io/">Itch.io</a> <br> 
+      <a href="https://lambda-cdm.bandcamp.com/">Bandcamp</a> <br> 
+      <iframe scrolling="no" style="border: 1; border-color:cyan; width: 100%;height: 50px;" color="cyan"; src="https://bandcamp.com/band_follow_button_deluxe/2814771398"></iframe>
     </div>
   </div>
-</div>
 
-<div class="footer">
-  <h2>Footer</h2>
+
+
+
+  <script>
+    function ChangeDecade(inputYear, targetDecade) {
+      //ChangeDecade(2026, 2010) --> 2016
+      //ChangeDecade(2026, 2000) --> 2006
+      var firstThreeDigits = String(Math.floor(targetDecade / 10)); 
+      var targetYearsDigit = String(inputYear % 10);
+      return firstThreeDigits + targetYearsDigit;
+    }
+
+
+    
+  </script>
 </div>
 
 </body>
